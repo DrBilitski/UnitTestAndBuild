@@ -1,0 +1,25 @@
+name: Build and Test .NET Project
+
+on:
+  push:
+    branches:
+      - main  # Change this to your main branch name
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: 6.0.100  # You can change the version to match your project
+
+    - name: Build and Test
+      run: |
+        dotnet restore
+        dotnet build --configuration Release
+        dotnet test --configuration Release --no-restore
