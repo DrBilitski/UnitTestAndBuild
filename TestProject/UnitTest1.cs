@@ -118,6 +118,14 @@ public class Tests
     }
 
     [Test]
+    public void ThisShouldFail()
+    {
+        Assert.False(true);
+    }
+
+
+
+    [Test]
     public void TestAddLotsOfRecords()
     {
         FileManager fm = new FileManager();
